@@ -1,5 +1,11 @@
 extends Node2D
 
-@onready var body1 = $earth
-@onready var body2 =$sun
-var speed = 1000
+#factors to multiply mass by
+const mm=7.35*pow(10,22)  # moon massunits 
+const planetm=5.97*pow(10,24)
+#const starm=1.989*pow(10,30)
+
+func _ready():
+	$earth.mass=planetm
+	$moon.mass=mm
+	#$sun.mass=starm

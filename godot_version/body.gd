@@ -9,6 +9,10 @@ var acceleration
 var force = Vector2(0,0)
 const G = 6.67*pow(10,-11)
 
+
+
+var timestep = 1
+
 func calculate_force(body):
 	var dist = position.distance_to(body.position)
 	var forcemag=G*mass*body.mass/pow(dist,2)
@@ -24,15 +28,16 @@ func calculate_acceleration(force):
 
 func calculate_new_velocity(body):
 	acceleration = calculate_acceleration(calculate_force(body))
-	var new_velocity = velocity + acceleration
+	var new_velocity = velocity + timestep*acceleration
 	return new_velocity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#mass = mass * mmunits
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func physics_process(delta):
 	velocity = calculate_new_velocity(body)
-	position+=velocity
+	position+=timestep*velocity

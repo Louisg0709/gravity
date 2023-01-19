@@ -14,9 +14,9 @@ zoom = Vector2(0.215, 0.215)
 
 [node name="earth" parent="." instance=ExtResource("2_47obk")]
 position = Vector2(557, 46)
-target = "sun"
+target = "moon"
 
-[node name="sun" parent="." instance=ExtResource("2_47obk")]
+[node name="moon" parent="." instance=ExtResource("2_47obk")]
 position = Vector2(549, 331)
 target = "earth"
 mass = 9999999999
