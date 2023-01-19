@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbfsr416akf04"]
+
+[ext_resource type="Script" path="res://testlevel.gd" id="1_pdab5"]
+[ext_resource type="PackedScene" uid="uid://0w86v6t3adhx" path="res://body.tscn" id="2_47obk"]
+
+[node name="testlevel" type="Node2D"]
+script = ExtResource("1_pdab5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(549, 331)
+scale = Vector2(-102.671, 15.1065)
+current = true
+zoom = Vector2(0.215, 0.215)
+
+[node name="earth" parent="." instance=ExtResource("2_47obk")]
+position = Vector2(557, 46)
+target = "sun"
+
+[node name="sun" parent="." instance=ExtResource("2_47obk")]
+position = Vector2(549, 331)
+target = "earth"
+mass = 9999999999
